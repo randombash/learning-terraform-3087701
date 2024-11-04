@@ -6,7 +6,7 @@ data "aws_ami" "app_ami" {
     name   = "name"
     values = ["bitnami-tomcat-*-x86_64-hvm-ebs-nami"]
   }
-
+x
   filter {
     name   = "virtualization-type"
     values = ["hvm"]
@@ -39,7 +39,7 @@ resource "aws_instance" "blog" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [module.blog_sg.security_group_id]
 
-  subnet_id = blog_vpc.public_subnets.0
+  subnet_id = module.:westblog_vpc.public_subnets.0
 
   tags = {
     Name = "Learning Terraform"
